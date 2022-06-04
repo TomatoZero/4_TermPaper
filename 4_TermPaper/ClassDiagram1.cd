@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="_4_TermPaper.Model.DigitallInstrumentModel" Collapsed="true">
+    <Position X="12.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAIAABAyAAAAMBAAAAAgAAAAEAAAAAAIAAACABA=</HashCode>
+      <FileName>Model\DigitallInstrumentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_4_TermPaper.Model.InformationIcon" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAAAACAAAAgEAEBAAAAASAAAAAAAAAAAAGDAA=</HashCode>
+      <FileName>Model\InformationIcon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_4_TermPaper.Model.Instrument" Collapsed="true">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Model\Instrument.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_4_TermPaper.Model.MeasuredInstrument" Collapsed="true">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAMAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Instrument.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_4_TermPaper.Model.ClockFace" Collapsed="true">
+    <Position X="10.5" Y="5.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAIEBKAADAygAAAMAAAAAAAABAAEEgAAEgAAABKCAA=</HashCode>
+      <FileName>Model\ClockFace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_4_TermPaper.ViewModel.BaseViewModel" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_4_TermPaper.ViewModel.MainWindowViewModel" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBQIAAEAIiBAAAIAEAICEGAwAhAAEAYAAQQQAAAAABA=</HashCode>
+      <FileName>ViewModel\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_4_TermPaper.ViewModel.RelayCommand" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAAAABAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>ViewModel\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_4_TermPaper.MainWindow" Collapsed="true">
+    <Position X="2.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_4_TermPaper.PonterDevice" Collapsed="true">
+    <Position X="4.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAggAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PonterDevice.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_4_TermPaper.DigitalInstrument" Collapsed="true">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAEAAAAAAAAAAABA=</HashCode>
+      <FileName>DigitalInstrument.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="_4_TermPaper.Division" Collapsed="true">
+    <Position X="10.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Division.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_4_TermPaper.DivisionLable" Collapsed="true">
+    <Position X="12.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Division.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

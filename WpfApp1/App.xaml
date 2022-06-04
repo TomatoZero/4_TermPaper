@@ -1,0 +1,18 @@
+﻿<Application x:Class="WpfApp1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp1"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="dsCrystal">
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#dc-crystal"></Setter>
+            <!--<Setter Property="TextElement.FontFamily" Value="/Fonts/#Miratix-Normal"></Setter>-->
+        </Style>
+
+        <FontFamily x:Key="MineCraft">pack://WpfApp1/Fonts/#Miratix-Normal</FontFamily>
+        
+        <!--<Style x:Key="MineCraft">
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#minecraft-title-cyrillic-regular3"/>
+        </Style>-->
+    </Application.Resources>
+</Application>
