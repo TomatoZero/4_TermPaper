@@ -128,10 +128,10 @@ namespace _4_TermPaper.ViewModel
             ClockFace face = new ClockFace(TimeSpan.FromSeconds(1), "rmp", min: 0, max: 245, radiusSmallerBy: -50, steap: 5, pointAngel: 121);
             mainWindow.PointerDeveceTwo.Draw(face);
 
-            ClockFace forFuelInficator = new ClockFace(TimeSpan.FromSeconds(1), "Fuel", new Point(-200,-100), new Point(200, -100), angle: 45, min: 0, max: 170, radiusSmallerBy: 50, steap: 25, minPointerAngel: -76, maxPointerAngel: 76);
+            ClockFace forFuelInficator = new ClockFace(TimeSpan.FromSeconds(1), "Fuel", new Point(-200,-100), new Point(200, -100), angle: 45, min: 0, max: 170, radiusSmallerBy: 50, steap: 25, minPointerAngel: -76, maxPointerAngel: 76, pointAngel: -76);
             mainWindow.FuelIndicator.Draw(forFuelInficator);
 
-            ClockFace forOilePreshure = new ClockFace(TimeSpan.FromSeconds(1), "bar", new Point(-200, -100), new Point(200, -100), angle: 45, min: 0, max: 170, radiusSmallerBy: 50, steap: 25, minPointerAngel: -76, maxPointerAngel: 76);
+            ClockFace forOilePreshure = new ClockFace(TimeSpan.FromSeconds(1), "bar", new Point(-200, -100), new Point(200, -100), angle: 45, min: 0, max: 170, radiusSmallerBy: 50, steap: 25, minPointerAngel: -76, maxPointerAngel: 76, pointAngel: -76);
             mainWindow.oilPressure.Draw(forOilePreshure);
 
             ponterDevices = new PonterDevice[4]
