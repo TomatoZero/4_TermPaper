@@ -46,9 +46,9 @@ namespace _4_TermPaper
             Circule2.RadiusX = 155 - MyClockFace.RadiusSmallerBy;
             Circule2.RadiusY = 155 - MyClockFace.RadiusSmallerBy;
 
-            Arrow.Point = MyClockFace.Arrow;
+            Arrow.Point = MyClockFace.Pointer.Arrow;
 
-            MyClockFace.ForDrawing();
+            //MyClockFace.ForDrawing();
         }
 
         public void MyMethod((int, int) parametr) 

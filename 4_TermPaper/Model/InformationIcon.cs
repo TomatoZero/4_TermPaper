@@ -14,7 +14,7 @@ namespace _4_TermPaper.Model
         private SolidColorBrush defaultSolidColor;
         private SolidColorBrush currentSolidColor;
         private DispatcherTimer timer;
-        public (SolidColorBrush color1, SolidColorBrush color2) MyParametr { get; set; }
+        private (SolidColorBrush color1, SolidColorBrush color2) myParametr { get; set; }
 
         public override TimeSpan Duration 
         {
@@ -32,8 +32,7 @@ namespace _4_TermPaper.Model
             get => defaultSolidColor; 
             set => defaultSolidColor = value; 
         }
-        public DispatcherTimer Timer { get => timer; set => timer = value; }
-        public SolidColorBrush CurrentSolidColor { get => currentSolidColor; set => currentSolidColor = value; }
+        public SolidColorBrush CurrentSolidColor { get => currentSolidColor; private set => currentSolidColor = value; }
 
         public InformationIcon(TimeSpan duration) : base(duration)
         {
@@ -41,14 +40,20 @@ namespace _4_TermPaper.Model
             CurrentSolidColor = DefaultSolidColor.Clone();
         }
 
+        public InformationIcon(TimeSpan duration, SolidColorBrush defaultColor) : base(duration)
+        {
+            DefaultSolidColor = defaultColor;
+            CurrentSolidColor = defaultColor;
+        }
+
         public override void SetParametr(object parameter)
         {    
-            if (parameter.GetType() != MyParametr.GetType())
+            if (parameter.GetType() != myParametr.GetType())
             {
                 throw new NotImplementedException();
             }
 
-            MyParametr = ((SolidColorBrush, SolidColorBrush))parameter;
+            myParametr = ((SolidColorBrush, SolidColorBrush))parameter;
         }
 
         public void StartAnimation() 
@@ -56,27 +61,27 @@ namespace _4_TermPaper.Model
             if (Duration == null)
                 throw new ArgumentNullException();
 
-            Timer = new DispatcherTimer();
-            Timer.Interval = Duration;
-            Timer.Tick += Animation;
+            timer = new DispatcherTimer();
+            timer.Interval = Duration;
+            timer.Tick += Animation;
             timer.Start();
         }
 
         private void Animation(object? sender, EventArgs e)
         {
-            if(CurrentSolidColor.Color == MyParametr.color1.Color) 
-                CurrentSolidColor.Color = MyParametr.color2.Color;
+            if(CurrentSolidColor.Color == myParametr.color1.Color) 
+                CurrentSolidColor.Color = myParametr.color2.Color;
             else
-                CurrentSolidColor.Color= MyParametr.color1.Color;
+                CurrentSolidColor.Color= myParametr.color1.Color;
         }
 
         public void StopAnimation() 
         {
-            if (Timer != null)
-                if (Timer.IsEnabled)
+            if (timer != null)
+                if (timer.IsEnabled)
                 {
                     CurrentSolidColor.Color = DefaultSolidColor.Color;
-                    Timer.Stop();
+                    timer.Stop();
                 }
         }
     }

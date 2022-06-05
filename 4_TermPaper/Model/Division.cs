@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _4_TermPaper
 {
-    public class Division
+    public struct Division
     {
         public double Lenght { get; }
         public double Angle { get; }
@@ -27,7 +27,7 @@ namespace _4_TermPaper
         }
     }
 
-    public class DivisionLable
+    public struct DivisionLable
     {
         public double Angle { get; }
         public string Str { get; }

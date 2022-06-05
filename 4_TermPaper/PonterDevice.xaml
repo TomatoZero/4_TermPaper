@@ -58,7 +58,7 @@
             </Path.Fill>
             <Path.RenderTransform>
                 <TransformGroup >
-                    <RotateTransform Angle="{Binding MyClockFace.PointerAngle}" CenterX="0" CenterY="0" x:Name="transform"/>
+                    <RotateTransform Angle="{Binding MyClockFace.Pointer.Angel}" CenterX="0" CenterY="0" x:Name="transform"/>
                 </TransformGroup>
             </Path.RenderTransform>
             <Path.Data>
@@ -74,7 +74,7 @@
 
         <!---->
         <Border BorderThickness="3">
-            <ItemsControl ItemsSource="{Binding MyClockFace.Divisions}">
+            <ItemsControl ItemsSource="{Binding MyClockFace.MyDial.Divisions}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>
@@ -103,7 +103,7 @@
 
         <!--Цифри-->
         <Border BorderThickness="3" Width="300" Height="300">
-            <ItemsControl ItemsSource="{Binding MyClockFace.DivisionLables}">
+            <ItemsControl ItemsSource="{Binding MyClockFace.MyDial.DivisionLables}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>

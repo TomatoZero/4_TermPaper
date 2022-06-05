@@ -85,8 +85,6 @@ namespace _4_TermPaper.ViewModel
         }
         public Storyboard MyStoryboard { get => storyboard; set => storyboard = value; }
 
-        public ObservableCollection<Division> Divisions { get; } = new ObservableCollection<Division>();
-        public ObservableCollection<DivisionLable> DivisionLables { get; } = new ObservableCollection<DivisionLable>();
         public double Radius { get; }
         public Point Centre { get; }
         public RotateTransform RotateTransform 
@@ -122,16 +120,25 @@ namespace _4_TermPaper.ViewModel
                 icons[i].SetParametr(_ = p);
             }
 
-            ClockFaces = new ClockFace(TimeSpan.FromSeconds(2),"km/h", min: 0, max: 245, radiusSmallerBy: -60, steap: 5, pointAngel: -121);
+            ClockFaces = new ClockFace(TimeSpan.FromSeconds(2), "km/h",
+                new ForPointer(radiusSmallerBy: -60, angel: -121), 
+                new ForMyDial(min: 0, max: 245, radiusSmallerBy: -50, angle: 0, steap: 5, difference: 10), -50);
             mainWindow.PointerDeveceOne.Draw(ClockFaces);
 
-            ClockFace face = new ClockFace(TimeSpan.FromSeconds(1), "rmp", min: 0, max: 245, radiusSmallerBy: -50, steap: 5, pointAngel: 121);
+            ClockFace face = new ClockFace(TimeSpan.FromSeconds(1), "rmp",
+                new ForPointer(radiusSmallerBy: -50, angel: -121),
+                new ForMyDial(min: 0, max: 245, radiusSmallerBy: -50, angle: 0, steap: 5, difference: 10, 20, 100), -50);
             mainWindow.PointerDeveceTwo.Draw(face);
 
-            ClockFace forFuelInficator = new ClockFace(TimeSpan.FromSeconds(1), "Fuel", new Point(-200,-100), new Point(200, -100), angle: 45, min: 0, max: 170, radiusSmallerBy: 50, steap: 25, minPointerAngel: -76, maxPointerAngel: 76, pointAngel: -76);
+            ClockFace forFuelInficator = new ClockFace(TimeSpan.FromSeconds(1), "Fuel", 
+                new ForPointer(-76, 76, -76, 50), 
+                new ForMyDial(min: 0, max: 170, radiusSmallerBy: 50, angle: 45, steap: 25, 0.5), radiusSmallerBy: 50,
+                new Point(-200, -100), new Point(200, -100));
             mainWindow.FuelIndicator.Draw(forFuelInficator);
 
-            ClockFace forOilePreshure = new ClockFace(TimeSpan.FromSeconds(1), "bar", new Point(-200, -100), new Point(200, -100), angle: 45, min: 0, max: 170, radiusSmallerBy: 50, steap: 25, minPointerAngel: -76, maxPointerAngel: 76, pointAngel: -76);
+            ClockFace forOilePreshure = new ClockFace(TimeSpan.FromSeconds(1), "bar", new ForPointer(-76, 76, -76, 50),
+                new ForMyDial(min: 0, max: 170, radiusSmallerBy: 50, angle: 45, steap: 25, difference:1, 20,10), radiusSmallerBy: 50,
+                new Point(-200, -100), new Point(200, -100));
             mainWindow.oilPressure.Draw(forOilePreshure);
 
             ponterDevices = new PonterDevice[4]
@@ -222,11 +229,11 @@ namespace _4_TermPaper.ViewModel
             Random random1 = new Random();
             for (int i = 0; i < ponterDevices.Length; i++)
             {
-                int min = ponterDevices[i].MyClockFace.minPointerAngel;
-                int max = ponterDevices[i].MyClockFace.maxPointerAngel;
-                double angle = ponterDevices[i].MyClockFace.Angle;
+                int min = ponterDevices[i].MyClockFace.Pointer.MinPointAngel;
+                int max = ponterDevices[i].MyClockFace.Pointer.MaxPointAngel;
+                double angle = ponterDevices[i].MyClockFace.Pointer.Angel;
 
-                parametr.Item1 = ponterDevices[i].MyClockFace.PointerAngle;
+                parametr.Item1 = ponterDevices[i].MyClockFace.Pointer.Angel;
                 parametr.Item2 = random1.Next(min, max);
 
                 ponterDevices[i].MyMethod(parametr);

@@ -25,14 +25,10 @@ namespace _4_TermPaper.Model
     public abstract class MeasuredInstrument : Instrument
     {
         public abstract string Unit { get; set; }
-        public abstract int Min { get; set; }
-        public abstract int Max { get; set; }
 
-        public MeasuredInstrument(TimeSpan duration, string unit, int min, int max)
+        public MeasuredInstrument(TimeSpan duration, string unit)
             : base(duration)
         {
-            Min = min;
-            Max = max;
             Unit = unit;
         }
         public abstract void ChangeOfIndicators(object utensil, object parameter);

@@ -18,13 +18,15 @@ namespace _4_TermPaper.Model
         private DigitalInstrument digital;
 
         public override string Unit { get => unit; set => unit = value; }
-        public override int Min { get => min; set => min = value; }
-        public override int Max { get => max; set => max = value; }
+        public int Min { get => min; set => min = value; }
+        public int Max { get => max; set => max = value; }
         public override TimeSpan Duration { get => duration; set => duration = value; }
 
-        public DigitallInstrumentModel(TimeSpan duration, string unit, int min, int max) : base(duration, unit, min, max)
+        public DigitallInstrumentModel(TimeSpan duration, string unit, int min, int max) : base(duration, unit)
         {
             digital = new DigitalInstrument();
+            Min = min;
+            Max = max;
         }
 
         public override void ChangeOfIndicators(object utensil, object parameter)

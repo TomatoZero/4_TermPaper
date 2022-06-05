@@ -14,19 +14,18 @@ namespace _4_TermPaper.Model
     {
         private TimeSpan duration;
         private string unit;
-        private int min;
-        private int max;
 
-        private double steap;
         private Point point1;
         private Point point2;
         private int radiusSmallerBy;
-        private double angle;
-        private Point arrow;
 
-        private int pointerAngle;
-        public readonly int minPointerAngel;
-        public readonly int maxPointerAngel;
+        private ForPointer pointer;
+        private ForMyDial myDial;
+
+
+        public ForPointer Pointer { get => pointer; set => pointer = value; }
+        public ForMyDial MyDial { get => myDial; set => myDial = value; }
+
 
         public override TimeSpan Duration { get => duration; set => duration = value; }
         public override string Unit
@@ -34,56 +33,42 @@ namespace _4_TermPaper.Model
             get => unit;
             set => unit = value;
         }
-        public override int Min { get => min; set => min = value; }
-        public override int Max { get => max; set => max = value; }
-        public double Steap { get => steap; set => steap = value; }
-
 
         public Point Point1 { get => point1; set => point1 = value; }
         public Point Point2 { get => point2; set => point2 = value; }
-        public int RadiusSmallerBy { get => radiusSmallerBy; set => radiusSmallerBy = value; }
-        public double Angle { get => angle; set => angle = value; }
-        public Point Arrow { get => arrow; set => arrow = value; }
 
-        public ObservableCollection<Division> Divisions { get; } = new ObservableCollection<Division>();
-        public ObservableCollection<DivisionLable> DivisionLables { get; } = new ObservableCollection<DivisionLable>();
+        public int RadiusSmallerBy { get => radiusSmallerBy; set => radiusSmallerBy = value; }
+
+        
+
+        public ObservableCollection<Division> Divisions { get; set; }
+        public ObservableCollection<DivisionLable> DivisionLables { get; set; }
 
         public RotateTransform RotateTransform { get; set; } = new RotateTransform();
-        public int PointerAngle { get => pointerAngle; set => pointerAngle = value; }
 
         public (int start, int end) MyParametr;
 
-        public ClockFace(TimeSpan duration, string unit,
-            int min = 245, int max = -50, double steap = 5, int pointAngel = 0, int minPointerAngel = -120, int maxPointerAngel = 120)
-            : base(duration, unit, min, max)
+        public ClockFace(TimeSpan duration, string unit, ForPointer pointer, ForMyDial myDial, int radiusSmallerBy = 0)
+            : base(duration, unit)
         {
             Divisions = new ObservableCollection<Division>();
             DivisionLables = new ObservableCollection<DivisionLable>();
-            Steap = steap;
-            PointerAngle = pointAngel;
-            this.minPointerAngel = minPointerAngel;
-            this.maxPointerAngel = maxPointerAngel;
-        }
 
-        public ClockFace(TimeSpan duration, string unit,
-            int min = 245, int max = -50, int radiusSmallerBy = 0, double steap = 5, int pointAngel = 0, int minPointerAngel = -120, int maxPointerAngel = 120)
-            : this(duration, unit, min, max, steap, pointAngel, minPointerAngel, maxPointerAngel)
-        {
             Point1 = new Point(-150, 80);
             Point2 = new Point(150, 80);
-            Arrow = new Point(150, radiusSmallerBy + 10);
+
+            Pointer = pointer;
+            MyDial = myDial;
+
             RadiusSmallerBy = radiusSmallerBy;
         }
 
-        public ClockFace(TimeSpan duration, string unit, Point p1, Point p2,
-            double angle = 0, int min = 245, int max = -50, int radiusSmallerBy = 0, double steap = 5, int pointAngel = 0, int minPointerAngel = -120, int maxPointerAngel = 120)
-            : this(duration, unit, min, max, radiusSmallerBy, steap, pointAngel, minPointerAngel, maxPointerAngel)
+        public ClockFace(TimeSpan duration, string unit, ForPointer pointer, ForMyDial myDial, int radiusSmallerBy,  Point p1, Point p2)
+            : this(duration, unit, pointer, myDial, radiusSmallerBy)
         {
             Point1 = p1;
             Point2 = p2;
-            Angle = angle;
         }
-
 
         public override void SetParametr(object parameter)
         {
@@ -94,7 +79,6 @@ namespace _4_TermPaper.Model
                 throw new ArgumentException();
 
             MyParametr = ((int,int)) parameter;
-
         }
 
         public override void ChangeOfIndicators(object utensil)
@@ -109,9 +93,7 @@ namespace _4_TermPaper.Model
             RotateTransform.BeginAnimation(RotateTransform.AngleProperty,
                 new DoubleAnimation(MyParametr.start, MyParametr.end, Duration));
 
-            PointerAngle = MyParametr.end;
-
-            ForDrawing();
+            Pointer.Angel = MyParametr.end;
         }
 
         public override void ChangeOfIndicators(object utensil, object parameter)
@@ -120,53 +102,11 @@ namespace _4_TermPaper.Model
             ChangeOfIndicators(utensil);
         }
 
-        public void ForDrawing()
-        {
-            switch (Unit)
-            {
-                case "km/h":
-                    ToFill(20, 10, 1);
-                    break;
-                case "Fuel":
-                    ToFill(20, 10, 100);
-                    break;
-                case "rmp":
-                    ToFill(20, 100, 2);
-                    break;
-                case "bar":
-                    ToFill(20, 10, 16.66);
-                    break;
-                default:
-                    ToFill(20, 10, 1);
-                    break;
-            }
-
-        }
-        private void ToFill(double i1, double i2, double denominator)
-        {
-            for (double i = Min; i < Max; i += Steap)
-            {
-                int myI = (int)(i / 1.5);
-
-                string str = "";
-                double lenght;
-                if (myI % i1 == 0)
-                {
-                    lenght = 15;
-                    str = Math.Round((myI / denominator), 2).ToString();
-                }
-                else if (myI % i2 == 0)
-                {
-                    lenght = 10;
-                    str = Math.Round((myI / denominator), 2).ToString();
-                }
-                else
-                    lenght = 5;
-
-                Divisions.Add(new Division(lenght, (i - 30) + Angle, -140 + RadiusSmallerBy));
-                DivisionLables.Add(new DivisionLable(i - 25 + Angle, str, -120 + RadiusSmallerBy));
-            }
-        }
-
+        //public void ForDrawing()
+        //{
+        //    var result = myDial.ForDrawing();
+        //    Divisions = result.Item1;
+        //    DivisionLables = result.Item2;
+        //}
     }
 }
