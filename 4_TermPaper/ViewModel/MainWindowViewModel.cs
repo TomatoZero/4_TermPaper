@@ -13,7 +13,7 @@ using _4_TermPaper.Model;
 
 namespace _4_TermPaper.ViewModel
 {
-    class MainWindowViewModel : BaseViewModel
+    internal class MainWindowViewModel : BaseViewModel
     {
         private int degree;
         private RotateTransform rotateTransform;
@@ -24,6 +24,21 @@ namespace _4_TermPaper.ViewModel
         private InformationIcon oil;
         private InformationIcon battery;
         private InformationIcon colingSystem;
+        private InformationIcon hoodOpen;
+        private InformationIcon trunkOpen;
+        private InformationIcon brakeSystemWarning;
+        private InformationIcon fogLight;
+        private InformationIcon lowBeam;
+        private InformationIcon highBeam;
+        private InformationIcon myESP;
+        private InformationIcon immobilizer;
+        private InformationIcon checkEngine;
+        private InformationIcon preGlow;
+        private InformationIcon openDoors;
+        private InformationIcon seatBeltWarning;
+        private InformationIcon applyFootBrake;
+        private InformationIcon parkingLight;
+        private InformationIcon lowTirePressure;
 
         public InformationIcon MyOil
         {
@@ -50,6 +65,141 @@ namespace _4_TermPaper.ViewModel
             {
                 colingSystem = value;
                 OnPropertyChanged("ColingSystem");
+            }
+        }
+        public InformationIcon HoodOpen 
+        {
+            get => hoodOpen;
+            set 
+            {
+                hoodOpen = value;
+                OnPropertyChanged("HoodOpen");
+            }
+        }
+        public InformationIcon TrunkOpen 
+        {
+            get => trunkOpen;
+            set 
+            {
+                trunkOpen = value;
+                OnPropertyChanged("TrunkOpen");
+            }
+        }
+        public InformationIcon BrakeSystemWarning 
+        {
+            get => brakeSystemWarning;
+            set 
+            {
+                brakeSystemWarning = value;
+                OnPropertyChanged("BrakeSystemWarning");
+            }
+        }
+        public InformationIcon FogLight 
+        {
+            get => fogLight; 
+            set
+            {
+                fogLight = value;
+                OnPropertyChanged("FogLight");
+            }
+        }
+        public InformationIcon LowBeam 
+        {
+            get => lowBeam;
+            set
+            {
+                lowBeam = value;
+                OnPropertyChanged("LowBeam");
+            }
+        }
+        public InformationIcon HighBeam 
+        {
+            get => highBeam;
+            set 
+            { 
+                highBeam = value;
+                OnPropertyChanged("HighBeam");
+            }
+        }
+        public InformationIcon ESP 
+        {
+            get => myESP;
+            set 
+            {
+                myESP = value;
+                OnPropertyChanged("ESP");
+            }
+        }
+        public InformationIcon Immobilizer 
+        {
+            get => immobilizer;
+            set 
+            {
+                immobilizer = value;
+                OnPropertyChanged("Immobilizer");
+            }
+        }
+        public InformationIcon CheckEngine 
+        {
+            get => checkEngine;
+            set 
+            {
+                checkEngine = value;
+                OnPropertyChanged("CheckEngine");
+            }
+        }
+        public InformationIcon PreGlow 
+        {
+            get => preGlow;
+            set 
+            {
+                preGlow = value;
+                OnPropertyChanged("PreGlow");
+            }
+        }
+        public InformationIcon OpenDoors 
+        {
+            get => openDoors;
+            set 
+            {
+                openDoors = value;
+                OnPropertyChanged("OpenDoors");
+            }
+        }
+        public InformationIcon SeatBeltWarning 
+        {
+            get => seatBeltWarning;
+            set 
+            {
+                seatBeltWarning = value;
+                OnPropertyChanged("SeatBeltWarning");
+            }
+        }
+        public InformationIcon ApplyFootBrake 
+        {
+            get => applyFootBrake;
+            set 
+            {
+                applyFootBrake = value;
+                OnPropertyChanged("ApplyFootBrake");
+            }
+        }
+        public InformationIcon ParkingLight 
+        {
+            get => parkingLight;
+            set 
+            {
+                parkingLight = value;
+                OnPropertyChanged("ParkingLight");
+            }
+        }
+        public InformationIcon LowTirePressure 
+        {
+            get => lowTirePressure;
+            set 
+            {
+                lowTirePressure = value;
+                OnPropertyChanged("lowTirePressure");
             }
         }
         #endregion
@@ -104,39 +254,64 @@ namespace _4_TermPaper.ViewModel
         {
             MyStoryboard = new Storyboard();
 
-            MyOil = new InformationIcon(TimeSpan.FromSeconds(0.5));
-            Battery = new InformationIcon(TimeSpan.FromSeconds(0.5));
-            ColingSystem = new InformationIcon(TimeSpan.FromSeconds(0.5));
+            MyOil = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.red);
+            Battery = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.red);
+            ColingSystem = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.red);
+            HoodOpen = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.red);
+            TrunkOpen = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.red);
+            BrakeSystemWarning = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.red);
+            FogLight = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.orange);
+            LowBeam = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.green);
+            HighBeam = new InformationIcon(TimeSpan.FromSeconds(0.6), new SolidColorBrush(Colors.Gray), IndicatorType.blue);
+
+            ESP = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.orange);
+            Immobilizer = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.orange);
+            CheckEngine = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.orange);
+            PreGlow = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.orange);
+            OpenDoors = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.red);
+            SeatBeltWarning = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.red);
+            ApplyFootBrake = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.green);
+            ParkingLight = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.green);
+            LowTirePressure = new InformationIcon(TimeSpan.FromSeconds(0.5), new SolidColorBrush(Colors.Gray), IndicatorType.orange);
 
             icons = new List<InformationIcon>();
             icons.Add(MyOil);
             icons.Add(Battery);
             icons.Add(ColingSystem);
-
-
-            for (int i = 0; i < 3; i++) 
-            {
-                var p = (new SolidColorBrush(Colors.Black), new SolidColorBrush(Colors.Red));
-                icons[i].SetParametr(_ = p);
-            }
+            icons.Add(HoodOpen);
+            icons.Add(TrunkOpen);
+            icons.Add(BrakeSystemWarning);
+            icons.Add(FogLight);
+            icons.Add(LowBeam);
+            icons.Add(HighBeam);
+            icons.Add(ESP);
+            icons.Add(Immobilizer);
+            icons.Add(CheckEngine);
+            icons.Add(PreGlow);
+            icons.Add(OpenDoors);
+            icons.Add(SeatBeltWarning);
+            icons.Add(ApplyFootBrake);
+            icons.Add(ParkingLight);
+            icons.Add(LowTirePressure);
 
             ClockFaces = new ClockFace(TimeSpan.FromSeconds(2), "km/h",
-                new ForPointer(radiusSmallerBy: -60, angel: -121), 
+                new ForPointer(radiusSmallerBy: -20, angel: -121), 
                 new ForMyDial(min: 0, max: 245, radiusSmallerBy: -50, angle: 0, steap: 5, difference: 10), -50);
             mainWindow.PointerDeveceOne.Draw(ClockFaces);
 
             ClockFace face = new ClockFace(TimeSpan.FromSeconds(1), "rmp",
-                new ForPointer(radiusSmallerBy: -50, angel: -121),
+                new ForPointer(radiusSmallerBy: -20, angel: -121),
                 new ForMyDial(min: 0, max: 245, radiusSmallerBy: -50, angle: 0, steap: 5, difference: 10, 20, 100), -50);
             mainWindow.PointerDeveceTwo.Draw(face);
 
             ClockFace forFuelInficator = new ClockFace(TimeSpan.FromSeconds(1), "Fuel", 
-                new ForPointer(-76, 76, -76, 50), 
+                new ForPointer(-76, 76, -76, 75), 
                 new ForMyDial(min: 0, max: 170, radiusSmallerBy: 50, angle: 45, steap: 25, 0.5), radiusSmallerBy: 50,
                 new Point(-200, -100), new Point(200, -100));
             mainWindow.FuelIndicator.Draw(forFuelInficator);
 
-            ClockFace forOilePreshure = new ClockFace(TimeSpan.FromSeconds(1), "bar", new ForPointer(-76, 76, -76, 50),
+            ClockFace forOilePreshure = new ClockFace(TimeSpan.FromSeconds(1), "bar", 
+                new ForPointer(-76, 76, -76, 75),
                 new ForMyDial(min: 0, max: 170, radiusSmallerBy: 50, angle: 45, steap: 25, difference:1, 20,10), radiusSmallerBy: 50,
                 new Point(-200, -100), new Point(200, -100));
             mainWindow.oilPressure.Draw(forOilePreshure);
@@ -150,9 +325,9 @@ namespace _4_TermPaper.ViewModel
             };
             
 
-            DigitallInstrumentModel digitalInstrument = new DigitallInstrumentModel(TimeSpan.FromMilliseconds(2), "lol", 0, 999);
+            DigitallInstrumentModel digitalInstrument = new DigitallInstrumentModel(TimeSpan.FromMilliseconds(2), "", 0, 999);
             mainWindow.totalMileage.Create(digitalInstrument);
-            DigitallInstrumentModel secondInstrument = new DigitallInstrumentModel(TimeSpan.FromMilliseconds(2), "lol2", 0, 999);
+            DigitallInstrumentModel secondInstrument = new DigitallInstrumentModel(TimeSpan.FromMilliseconds(2), "", 0, 999);
             mainWindow.dailyMileage.Create(secondInstrument);
 
             digitals = new DigitalInstrument[2] { mainWindow.totalMileage, mainWindow.dailyMileage };
@@ -231,7 +406,6 @@ namespace _4_TermPaper.ViewModel
             {
                 int min = ponterDevices[i].MyClockFace.Pointer.MinPointAngel;
                 int max = ponterDevices[i].MyClockFace.Pointer.MaxPointAngel;
-                double angle = ponterDevices[i].MyClockFace.Pointer.Angel;
 
                 parametr.Item1 = ponterDevices[i].MyClockFace.Pointer.Angel;
                 parametr.Item2 = random1.Next(min, max);
@@ -242,11 +416,11 @@ namespace _4_TermPaper.ViewModel
             foreach (InformationIcon icon in icons)
                 icon.StopAnimation();
 
-            int n = random1.Next(0, 3);
+            int n = random1.Next(0, 4);
             List<int> wasBefore = new List<int>();
-            for(int i = 0; i < n; i++) 
+            for (int i = 0; i < n; i++) 
             {
-                int m = random1.Next(0, 3);
+                int m = random1.Next(0, icons.Count);
 
                 if(wasBefore.Contains(m))
                 { i--; continue; }
@@ -259,12 +433,6 @@ namespace _4_TermPaper.ViewModel
                 int current = Convert.ToInt32(digitals[i].MyValue.Content);
 
                 parametr.Item1 = current;
-
-                //if(random1.Next(0,1) == 0) 
-                //    parametr.Item2 = random1.Next(current, digitals[i].digital.Max + 100) / 10;
-                //else
-                //    parametr.Item2 = random1.Next(current, digitals[i].digital.Max + 100) / 10;
-
                 parametr.Item2 = random1.Next(current, digitals[i].digital.Max + 100) / 10;
 
                 digitals[i].MyAnimation(parametr);

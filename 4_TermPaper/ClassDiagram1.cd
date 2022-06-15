@@ -3,14 +3,14 @@
   <Class Name="_4_TermPaper.Model.DigitallInstrumentModel" Collapsed="true">
     <Position X="12.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAEAIAABAyAAAAMBAAAAAgAAAAEAAAAAAIAAACABA=</HashCode>
+      <HashCode>AAQAEAoAABAyAAAAMBAAAAAAAAAAEAAAAAAIgAACABA=</HashCode>
       <FileName>Model\DigitallInstrumentModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_4_TermPaper.Model.InformationIcon" Collapsed="true">
     <Position X="9.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAIAAAACAAAAgEAEBAAAAASAAAAAAAAAAAAGDAA=</HashCode>
+      <HashCode>AAQAAAIAAAACAAAAgEAEBAAAAASAAAAAAAAIAAACBAA=</HashCode>
       <FileName>Model\InformationIcon.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="_4_TermPaper.Model.MeasuredInstrument" Collapsed="true">
     <Position X="11.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAMAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Instrument.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -36,7 +36,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAIEBKAADAygAAAMAAAAAAAABAAEEgAAEgAAABKCAA=</HashCode>
+      <HashCode>AAAIAAKAAAAiwAAAMEAAAAAAAAAAEAgAAAAAAAACCAA=</HashCode>
       <FileName>Model\ClockFace.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -49,9 +49,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="_4_TermPaper.ViewModel.MainWindowViewModel" Collapsed="true">
-    <Position X="2.75" Y="3.25" Width="1.5" />
+    <Position X="2.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EBQIAAEAIiBAAAIAEAICEGAwAhAAEAYAAQQQAAAAABA=</HashCode>
+      <HashCode>EBQIAAEAIgBAAAIAEAICEGAwAgAAEAYAAQQQAAAAABA=</HashCode>
       <FileName>ViewModel\MainWindowViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -87,19 +87,33 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="_4_TermPaper.Division" Collapsed="true">
-    <Position X="10.75" Y="6.5" Width="1.5" />
+  <Class Name="_4_TermPaper.Model.ForMyDial" Collapsed="true">
+    <Position X="14.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Division.cs</FileName>
+      <HashCode>AIAIEBAAACAQAAAAAABAAAAAABAAEAAAAAAAAABAAAA=</HashCode>
+      <FileName>Model\ForMyDial.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="_4_TermPaper.DivisionLable" Collapsed="true">
-    <Position X="12.5" Y="6.5" Width="1.5" />
+  <Class Name="_4_TermPaper.Model.ForPointer" Collapsed="true">
+    <Position X="16.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Division.cs</FileName>
+      <HashCode>EAAAABAQAAAAEAAAAAAAAAAAAAAAAAAAAAgAEAAIABA=</HashCode>
+      <FileName>Model\ForPointer.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Struct Name="_4_TermPaper.Division" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEAAABAAAAA=</HashCode>
+      <FileName>Model\Division.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="_4_TermPaper.DivisionLable" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAEAAABAAAAA=</HashCode>
+      <FileName>Model\Division.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

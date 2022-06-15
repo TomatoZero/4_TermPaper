@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _4_TermPaper.ViewModel
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    internal class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 

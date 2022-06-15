@@ -38,12 +38,6 @@ namespace _4_TermPaper.Model
         public Point Point2 { get => point2; set => point2 = value; }
 
         public int RadiusSmallerBy { get => radiusSmallerBy; set => radiusSmallerBy = value; }
-
-        
-
-        public ObservableCollection<Division> Divisions { get; set; }
-        public ObservableCollection<DivisionLable> DivisionLables { get; set; }
-
         public RotateTransform RotateTransform { get; set; } = new RotateTransform();
 
         public (int start, int end) MyParametr;
@@ -51,9 +45,6 @@ namespace _4_TermPaper.Model
         public ClockFace(TimeSpan duration, string unit, ForPointer pointer, ForMyDial myDial, int radiusSmallerBy = 0)
             : base(duration, unit)
         {
-            Divisions = new ObservableCollection<Division>();
-            DivisionLables = new ObservableCollection<DivisionLable>();
-
             Point1 = new Point(-150, 80);
             Point2 = new Point(150, 80);
 
@@ -101,12 +92,5 @@ namespace _4_TermPaper.Model
             SetParametr(parameter);
             ChangeOfIndicators(utensil);
         }
-
-        //public void ForDrawing()
-        //{
-        //    var result = myDial.ForDrawing();
-        //    Divisions = result.Item1;
-        //    DivisionLables = result.Item2;
-        //}
     }
 }

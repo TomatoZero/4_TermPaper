@@ -16,17 +16,20 @@ namespace _4_TermPaper.Model
         private (int from, int to) myParametr;
         private DispatcherTimer timer;
         private DigitalInstrument digital;
+        private int value;
 
         public override string Unit { get => unit; set => unit = value; }
         public int Min { get => min; set => min = value; }
         public int Max { get => max; set => max = value; }
         public override TimeSpan Duration { get => duration; set => duration = value; }
+        public int Value { get => value; set => this.value = value; }
 
         public DigitallInstrumentModel(TimeSpan duration, string unit, int min, int max) : base(duration, unit)
         {
             digital = new DigitalInstrument();
             Min = min;
             Max = max;
+            Value = 0;
         }
 
         public override void ChangeOfIndicators(object utensil, object parameter)
@@ -46,7 +49,7 @@ namespace _4_TermPaper.Model
 
             digital = (DigitalInstrument)utensil;
 
-            myI = myParametr.from;
+            Value = myParametr.from;
             timer = new DispatcherTimer();
             timer.Interval = Duration;
             timer.Start();
@@ -59,27 +62,26 @@ namespace _4_TermPaper.Model
 
         private void MyAnimationDown(object? sender, EventArgs e)
         {
-            if (myI <= Min)
+            if (Value <= Min)
                 timer.Stop();
 
-            digital.MyValue.Content = myI.ToString();
-            myI--;
+            digital.MyValue.Content = Value.ToString();
+            Value--;
         }
 
-        int myI;
         private void MyAnimationUp(object? sender, EventArgs e)
         {
-            if (myI > Max)
+            if (Value > Max)
             {
-                myI = myI - Max;
+                Value = Value - Max;
                 myParametr.to = myParametr.to - Max;
             }
 
-            if (myI >= myParametr.to - 1)
+            if (Value >= myParametr.to - 1)
                 timer.Stop();
 
-            digital.MyValue.Content = myI.ToString();
-            myI++;
+            digital.MyValue.Content = Value.ToString();
+            Value++;
                 
         }
 

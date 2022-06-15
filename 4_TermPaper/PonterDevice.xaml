@@ -47,7 +47,6 @@
                 <TranslateTransform X="150" Y="150"/>
             </Path.RenderTransform>
         </Path>
-
         <!--Стрілка-->
         <Path RenderTransformOrigin="0.5 0.5">
             <Path.Fill>
@@ -71,7 +70,6 @@
                 </PathGeometry>
             </Path.Data>
         </Path>
-
         <!---->
         <Border BorderThickness="3">
             <ItemsControl ItemsSource="{Binding MyClockFace.MyDial.Divisions}">
@@ -100,7 +98,6 @@
                 </ItemsControl.ItemContainerStyle>
             </ItemsControl>
         </Border>
-
         <!--Цифри-->
         <Border BorderThickness="3" Width="300" Height="300">
             <ItemsControl ItemsSource="{Binding MyClockFace.MyDial.DivisionLables}">

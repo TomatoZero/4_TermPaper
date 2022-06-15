@@ -33,17 +33,41 @@ namespace _4_TermPaper.Model
             set => defaultSolidColor = value; 
         }
         public SolidColorBrush CurrentSolidColor { get => currentSolidColor; private set => currentSolidColor = value; }
+        public DispatcherTimer Timer { get => timer; set => timer = value; }
 
-        public InformationIcon(TimeSpan duration) : base(duration)
+        public InformationIcon(TimeSpan duration, IndicatorType type = IndicatorType.nan) : base(duration)
         {
             DefaultSolidColor = new SolidColorBrush(Colors.Blue);
             CurrentSolidColor = DefaultSolidColor.Clone();
+            SetColor(type);
         }
 
-        public InformationIcon(TimeSpan duration, SolidColorBrush defaultColor) : base(duration)
+        public InformationIcon(TimeSpan duration, SolidColorBrush defaultColor, IndicatorType type = IndicatorType.nan) : base(duration)
         {
             DefaultSolidColor = defaultColor;
-            CurrentSolidColor = defaultColor;
+            CurrentSolidColor = defaultColor.Clone();
+            SetColor(type);
+        }
+
+        private void SetColor(IndicatorType type)
+        {
+            switch (type)
+            {
+                case IndicatorType.green:
+                    myParametr = (new SolidColorBrush(Colors.Black), new SolidColorBrush(Colors.Black));
+                    break;
+                case IndicatorType.blue:
+                    myParametr = (new SolidColorBrush(Colors.Blue), new SolidColorBrush(Colors.Black));
+                    break;
+                case IndicatorType.orange:
+                    myParametr = (new SolidColorBrush(Colors.Orange), new SolidColorBrush(Colors.Black));
+                    break;
+                case IndicatorType.red:
+                    myParametr = (new SolidColorBrush(Colors.Red), new SolidColorBrush(Colors.Black));
+                    break;
+                case IndicatorType.nan:
+                    break;
+            }
         }
 
         public override void SetParametr(object parameter)
@@ -61,10 +85,10 @@ namespace _4_TermPaper.Model
             if (Duration == null)
                 throw new ArgumentNullException();
 
-            timer = new DispatcherTimer();
-            timer.Interval = Duration;
-            timer.Tick += Animation;
-            timer.Start();
+            Timer = new DispatcherTimer();
+            Timer.Interval = Duration;
+            Timer.Tick += Animation;
+            Timer.Start();
         }
 
         private void Animation(object? sender, EventArgs e)
@@ -77,12 +101,23 @@ namespace _4_TermPaper.Model
 
         public void StopAnimation() 
         {
-            if (timer != null)
-                if (timer.IsEnabled)
+            if (Timer != null)
+                if (Timer.IsEnabled)
                 {
                     CurrentSolidColor.Color = DefaultSolidColor.Color;
-                    timer.Stop();
+                    Timer.Stop();
                 }
         }
+
+        public void Glow() 
+        {
+            currentSolidColor.Color = myParametr.color1.Color;
+        }
     }
+
+    enum IndicatorType 
+    {
+        green, blue, orange, red, nan
+    }
+
 }

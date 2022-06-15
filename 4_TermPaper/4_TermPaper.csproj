@@ -8,14 +8,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Fonts\digital-7.ttf" />
-    <None Remove="Fonts\MyFonts.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Fonts\digital-7.ttf" />
-    <Resource Include="Fonts\MyFonts.ttf" />
-  </ItemGroup>
-
 </Project>
